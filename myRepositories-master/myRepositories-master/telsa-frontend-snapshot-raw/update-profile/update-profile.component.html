@@ -1,0 +1,50 @@
+
+    <div style="background-color: black;">
+    <br><div class="col-md-6 offset-md-3">
+    <div class="card-shadow">
+    <h3 class="text-center" style="color: wheat;">Update Profile</h3>
+    <p style="color: red; margin-left: 105px;">* Note: User Id cannot be updated</p>
+    <form [formGroup]="userDto" (ngSubmit)="updateProfile()">
+
+        <div class="form-group" style="margin-left:110px ;">
+            <label for="userId" style="color: blueviolet;">User Id</label>
+            <input type="number" id="userId" class="form-control" formControlName = "userId" style="width: 500px;">
+            <div class="alert alert-danger" *ngIf = "userDto.controls.userId['invalid'] && userDto.controls.userId['dirty']" style="width: 500px;">
+               <span *ngIf = "userDto.controls['userId'].errors?.required">Field Required</span>
+            </div>
+         </div>
+        <div class="form-group" style="margin-left:110px ;">
+           <label for="firstName" style="color: blueviolet;">First Name</label>
+           <input type="text" id="firstName" class="form-control" formControlName = "firstName" style="width: 500px;">
+           <div class="alert alert-danger" *ngIf = "userDto.controls.firstName['invalid'] && userDto.controls.firstName['dirty']" style="width: 500px;">
+              <span *ngIf = "userDto.controls['firstName'].errors?.required">Field Required</span>
+              <span *ngIf = "userDto.controls['firstName'].errors?.pattern">Name should be 2 to 15 characteters, contails only alphabets</span>
+           </div>
+        </div>
+        <div class="form-group" style="margin-left:110px ;">
+            <label for="lastName" style="color: blueviolet;">Last Name</label>
+            <input type="text" id="lastName" class="form-control" name="firstName" formControlName = "lastName" style="width: 500px;">
+            <div class="alert alert-danger" *ngIf = "userDto.controls['lastName'].invalid && userDto.controls['lastName'].dirty" style="width: 500px;">
+               <span *ngIf = "userDto.controls['lastName'].errors?.required">Field Required</span>
+               <span *ngIf = "userDto.controls['lastName'].errors?.pattern">Name should be 2 to 15 characteters, contails only alphabets</span>
+            </div>
+         </div>
+         <div class="form-group" style="margin-left:110px ;">
+            <label for="email" style="color: blueviolet;">Email Id</label>
+            <input type="text" id="email" class="form-control" formControlName = "email" style="width: 500px;">
+            <div class="alert alert-danger" *ngIf = "userDto.controls['email'].invalid && userDto.controls['email'].dirty" style="width: 500px;">
+               <span *ngIf = "userDto.controls['email'].errors?.required">Field Required</span>
+               <span *ngIf = "userDto.controls['email'].errors?.email">please enter a valid email address</span>
+            </div>
+         </div>
+         <div class="text-center  gadient-buttons mt-3" >
+           <button [disabled] = "userDto.invalid" class="button" style="background-color: brown; border-radius: 6px; width: 80px; height: 35px;">
+                 <p style="color: white;">update</p> 
+            </button>
+    
+         </div>      
+         <div class="text text-center">
+            <p style="color: green;">{{response}}</p> 
+         </div>
+    </form>
+    </div>
