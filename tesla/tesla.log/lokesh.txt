@@ -1,0 +1,3 @@
+The code given for thread creation which has written in c-language is running perfectly with c-compiler.
+While running the same program with c++ compiler will througn an error is invalid type conversion that is because in c implicit conversion from any object pointer type *void is possible, where as it is not possible in c++ so we need to typecast. 
+ After typecasting param in the code then it can run perfectly with c++ compiler.
